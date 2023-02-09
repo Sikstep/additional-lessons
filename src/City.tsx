@@ -1,9 +1,10 @@
 import React from 'react';
-import {CurrentBankomat} from "./CurrentBankomat";
-import {MoneyType} from "./App";
+import {CurrentBankomat} from './CurrentBankomat';
+import {MoneyType} from './App';
+import styled from 'styled-components';
 
 type CityPropsType = {
-    data: any //встречаем денюжки
+    data: MoneyType[] //встречаем денюжки
 }
 
 export const City = (props: CityPropsType) => {
@@ -15,16 +16,29 @@ export const City = (props: CityPropsType) => {
     //         money={el}
     //     />
     // ))
-
-
+    const mappedData = props.data.map(el => {
+        return (
+            <CurrentBankomat key={el.number} money={el}/>
+        );
+    });
     return (
         <div>
-            <div>Ну все парни, мапимся -выводим наши денюжки</div>
+            <Wrapper>
+                {mappedData}
+            </Wrapper>
             <div>На верстку ПОКА не обращаем внимания , сейчас занимаемся логикой</div>
             {/*<div>{mappedMoney}</div>*/}
         </div>
     );
 };
+
+
+    const Wrapper = styled.div`
+        display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      font-size: 30px;
+    `
 //1
 // Вроде все норм, но нужно причесать код. Давайте создадим const mappedMoney = props.data.map(el=>el...)
 // Т.е. нам нужно вынести map из вертски, оставив в верстке только mappedMoney
