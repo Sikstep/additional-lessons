@@ -4,20 +4,20 @@ import {BanknotsType, MoneyType} from "./App";
 
 type CountryPropsType = {
     data: MoneyType[]
-    setFilterValue: (filterValue:BanknotsType)=>void // давайте подумаем, setFilter -это гоузчик, у которого всегда в руках товар
+    setFilterValue: (filterValue: BanknotsType) => void // давайте подумаем, setFilter -это гоузчик, у которого всегда в руках товар
   }
 
 export const Country = (props: CountryPropsType) => {
     const setAll = () => {
-       props.setFilterValue('All')
+        props.setFilterValue('All')
     }
 
     const setDollars = () => {
-        props.setFilterValue('Dollars')
+        props.setFilterValue('Dollars')// засетаем 'Dollars'
     }
 
     const setRUBLS = () => {
-        props.setFilterValue('RUBLS')
+        props.setFilterValue('RUBLS') // засетаем 'RUBLS'
     }
 
     return (
