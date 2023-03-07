@@ -10,7 +10,7 @@ export const dataState: DataStateType = {
             about: 'Цикл for имеет следующий синтаксис:',
         },
         {
-            heading: `Конструкция \'switch\'`,
+            heading: `Конструкция switch`,
             about: 'Цикл switch заменяет собой сразу несколько if',
         },
     ]
