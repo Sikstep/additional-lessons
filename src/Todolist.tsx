@@ -35,6 +35,9 @@ export function Todolist(props: PropsType) {
 
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         setTitle(e.currentTarget.value)
+        if (title.trim() === '') {
+        setError("Title is required")
+        }
     }
 
     const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
@@ -60,7 +63,7 @@ export function Todolist(props: PropsType) {
                    onKeyPress={onKeyPressHandler}
                    className={error ? "error" : ""}
             />
-            <button onClick={addTask}>+</button>
+            <button onClick={addTask} disabled={error === null ? false : true}>+</button>
             {error && <div className="error-message">{error}</div>}
         </div>
         <ul>
